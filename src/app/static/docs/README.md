@@ -1,3 +1,3 @@
-# My App
+# Mini Royale: Nations
 
-A sample project for Sentre developers
+🔫 Open economy FPS on #Solana. [For technical demo purpose only. Please contact hi@sentre.io if there are any copyright/IP problems.]

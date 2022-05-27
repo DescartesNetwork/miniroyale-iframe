@@ -1,50 +1,101 @@
-import { useCallback, useEffect, useMemo } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useWallet } from '@senhub/providers'
+import { Fragment, useCallback, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
-import { Row, Col, Typography, Button, Space } from 'antd'
+import { Avatar, Button, Col, Modal, Row, Typography } from 'antd'
 import IonIcon from '@sentre/antd-ionicon'
+import EmbededView from 'shared/antd/embededView'
 
-import { AppDispatch, AppState } from 'app/model'
-import { increaseCounter } from 'app/model/main.controller'
 import configs from 'app/configs'
-import { createPDB } from 'shared/pdb'
+import BG from 'app/static/images/bg.jpeg'
+import LOGO from 'app/static/images/logo.png'
 
 const {
   manifest: { appId },
 } = configs
 
-const View = () => {
-  const {
-    wallet: { address },
-  } = useWallet()
-  const dispatch = useDispatch<AppDispatch>()
-  const { counter } = useSelector((state: AppState) => state.main)
+const SOURCE = 'https://miniroyale.io/'
 
-  const pdb = useMemo(() => createPDB(address, appId), [address])
-  const increase = useCallback(() => dispatch(increaseCounter()), [dispatch])
-  useEffect(() => {
-    if (pdb) pdb.setItem('counter', counter)
-  }, [pdb, counter])
+const View = () => {
+  const [visiable, setVisible] = useState(true)
+  const history = useHistory()
+
+  const onConfirm = useCallback(() => {
+    return setVisible(false)
+  }, [])
+
+  const onBack = useCallback(() => {
+    return history.push('/store')
+  }, [history])
 
   return (
-    <Row gutter={[24, 24]} align="middle">
-      <Col span={24}>
-        <Space align="center">
-          <IonIcon name="newspaper-outline" />
-          <Typography.Title level={4}>App View</Typography.Title>
-        </Space>
-      </Col>
-      <Col span={24}>
-        <Typography.Text>Address: {address}</Typography.Text>
-      </Col>
-      <Col>
-        <Typography.Text>Counter: {counter}</Typography.Text>
-      </Col>
-      <Col>
-        <Button onClick={increase}>Increase</Button>
-      </Col>
-    </Row>
+    <Fragment>
+      <Modal visible={visiable} footer={null} closable={false}>
+        <Row gutter={[36, 36]} justify="center">
+          <Col>
+            <Avatar shape="square" src={LOGO} size={96} />
+          </Col>
+          <Col span={24}>
+            <Row gutter={[12, 12]} justify="center">
+              <Col>
+                <Typography.Title level={3}>
+                  For Technical Demo Only!
+                </Typography.Title>
+              </Col>
+              <Col span={24}>
+                <Typography.Paragraph style={{ textAlign: 'center' }}>
+                  This product is only for technical demo purposes. If you are
+                  intertested in this application, please support the original
+                  project,{' '}
+                  <a href={SOURCE} target="_blank" rel="noreferrer">
+                    Mini Royale: Nations
+                  </a>
+                  .
+                </Typography.Paragraph>
+              </Col>
+            </Row>
+          </Col>
+          <Col span={24}>
+            <Row gutter={[16, 16]}>
+              <Col span={24}>
+                <Typography.Text className="caption" type="secondary">
+                  <IonIcon name="alert-circle-outline" /> By clicking the OK
+                  button, you understand and agree with the terms. If there are
+                  any copyright/IP issues, please contact us at{' '}
+                  <a
+                    href="mailto:hi@sentre.io"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    hi@sentre.io
+                  </a>
+                  .
+                </Typography.Text>
+              </Col>
+              <Col span={24}>
+                <Row gutter={[8, 8]}>
+                  <Col span={24}>
+                    <Button type="primary" onClick={onConfirm} block>
+                      OK
+                    </Button>
+                  </Col>
+                  <Col span={24}>
+                    <Button type="text" onClick={onBack} block>
+                      Back
+                    </Button>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Modal>
+      <EmbededView
+        appId={appId}
+        src={visiable ? '' : SOURCE}
+        title="Mini Royale: Open economy FPS on #Solana."
+        background={{ light: BG, dark: BG }}
+      />
+    </Fragment>
   )
 }
 
