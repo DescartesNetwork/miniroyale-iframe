@@ -1,2 +1,0 @@
-"use strict";(globalThis.webpackChunkmini_royale=globalThis.webpackChunkmini_royale||[]).push([[320,424],{23320:(e,o,t)=>{t.r(o),t.d(o,{RootContext:()=>l});var a=t(92950);const l=(0,a.createContext)(null)}}]);
-//# sourceMappingURL=320.e0f9800c.chunk.js.map
