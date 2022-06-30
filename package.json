@@ -1,5 +1,5 @@
 {
-  "name": "miniroyale_iframe",
+  "name": "miniroyale-iframe",
   "version": "2.2.2",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
