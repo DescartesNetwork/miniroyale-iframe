@@ -1,4 +1,7 @@
-import EmbededView from 'shared/antd/embededView'
+import { useEffect } from 'react'
+import { useUI } from '@sentre/senhub'
+
+import EmbededView from '@sentre/embeded-view'
 
 import configs from 'configs'
 import BG from 'static/images/bg.jpeg'
@@ -8,12 +11,17 @@ const {
 } = configs
 
 const View = () => {
+  const { setBackground } = useUI()
+
+  useEffect(() => {
+    setBackground({ light: BG, dark: BG })
+  }, [])
+
   return (
     <EmbededView
       appId={appId}
       src={'https://miniroyale.io/'}
       title="Mini Royale: Open economy FPS on #Solana."
-      background={{ light: BG, dark: BG }}
     />
   )
 }

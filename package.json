@@ -1,11 +1,12 @@
 {
-  "name": "mini_royale_iframe",
+  "name": "miniroyale_iframe",
   "version": "2.2.2",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@senswap/sen-js": "^1.4.0",
     "@sentre/antd-ionicon": "^1.0.31",
     "@sentre/connector": "^0.0.30",
+    "@sentre/embeded-view": "^1.0.31",
     "@sentre/senhub": "^3.0.28",
     "antd": "^4.21.1",
     "bn.js": "^5.2.0",

@@ -1935,6 +1935,13 @@
     util "^0.12.4"
     webpack-bundle-analyzer "^4.5.0"
 
+"@sentre/embeded-view@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@sentre/embeded-view/-/embeded-view-1.0.31.tgz#07dcaac912dece76b6ecaf895156d4ae7b2b0150"
+  integrity sha512-O4DZiULK2qoqZTi8wYls/6aLiDcvkEia5HcJ0E4RB7JE231HLNWAC/os+976du43vHDSzzhSTtIDt96bEBvJ2Q==
+  dependencies:
+    "@sentre/connector" "^0.0.30"
+
 "@sentre/react-dynamic-remote-component@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@sentre/react-dynamic-remote-component/-/react-dynamic-remote-component-0.0.6.tgz#9b5f0ef953091f5afeb48ae9075c0359416aa143"
