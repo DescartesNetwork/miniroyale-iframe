@@ -15,7 +15,7 @@ const View = () => {
 
   useEffect(() => {
     setBackground({ light: BG, dark: BG })
-  }, [])
+  }, [setBackground])
 
   return (
     <EmbededView
