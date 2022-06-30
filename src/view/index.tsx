@@ -19,6 +19,7 @@ const View = () => {
 
   return (
     <EmbededView
+      wallet={window.sentre.wallet}
       appId={appId}
       src={'https://miniroyale.io/'}
       title="Mini Royale: Open economy FPS on #Solana."
