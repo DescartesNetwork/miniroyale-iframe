@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useUI } from '@sentre/senhub'
+import { useSetBackground } from '@sentre/senhub'
 
 import EmbededView from '@sentre/embeded-view'
 
@@ -11,7 +11,7 @@ const {
 } = configs
 
 const View = () => {
-  const { setBackground } = useUI()
+  const setBackground = useSetBackground()
 
   useEffect(() => {
     setBackground({ light: BG, dark: BG })
